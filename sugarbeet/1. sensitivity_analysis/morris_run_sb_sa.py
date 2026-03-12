@@ -67,13 +67,13 @@ if __name__ == '__main__':
             #df_yldt.index = [0] 
             yield_results.append(df_yldt)
 
-            # 2. IRRIGATION
+            # 2. Irr
             df_irr = extract_irr_data(sim_csv_path)
             df_irrt = df_irr.set_index('Year').T 
             #df_irrt.index = [0]
             irrigation_results.append(df_irrt)
 
-            # 3. MOISTURE
+            # 3. Moist
             df_moist = extract_moist_data(sim_csv_path)
             df_moistt = df_moist.set_index('Date').T 
             #df_moistt.index = [0]
@@ -94,4 +94,5 @@ if __name__ == '__main__':
     # saving text files
     save_to_txt(yield_results, 'sugarbeet_yld.txt' )
     save_to_txt(irrigation_results, 'sugarbeet_irr.txt')
+
     save_to_txt(moisture_results, 'sugarbeet_sm.txt')
